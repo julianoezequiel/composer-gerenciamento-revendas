@@ -1,0 +1,41 @@
+version: "3.7"
+
+services:   
+
+  gerenciamento-revendas:
+    image: 10.10.253.214:5000/topdata/gerenciador-revendas:0.0.1
+    environment:
+      - ACTIVE_PROFILE=local
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+         cpus: "1"
+         memory: 1200M
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "8081:80"
+    networks:
+      - topponto
+
+  app-gerenciamento:
+    image: 10.10.253.214:5000/topdata/gerenciador-revendas-cliente:0.0.1
+    environment:
+      - "JAVA_OPTS=-Duser.timezone=GMT -Duser.language=pt -Duser.country=BR"
+    deploy:
+      replicas: 1
+      resources:
+          limits:
+            cpus: "1"
+            memory: 200M
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "80:80"
+    networks:
+     - topponto  
+  
+networks:
+  topponto:
+    external: true
