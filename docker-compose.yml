@@ -15,7 +15,7 @@ services:
       restart_policy:
         condition: on-failure
     ports:
-      - "8081:80"
+      - "5010:5010"
     networks:
       - topponto
 
