@@ -1,0 +1,2 @@
+#procedimento para criação da imagem docker 
+docker build -t topdata/gerenciador-revendas-cliente:0.0.1 .
