@@ -1,6 +1,7 @@
 #procedimento para criação da imagem docker 
 docker build -t topdata/gerenciador-revendas-cliente:0.0.1 .
-
 docker tag topdata/gerenciador-revendas-cliente:0.0.1 10.10.253.214:5000/topdata/gerenciador-revendas-cliente:0.0.1
-
 docker push 10.10.253.214:5000/topdata/gerenciador-revendas-cliente:0.0.1
+
+docker push  10.10.253.214:5000/topdata/gerenciador-revendas:0.0.1
+
